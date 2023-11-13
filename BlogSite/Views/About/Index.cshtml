@@ -1,0 +1,79 @@
+﻿@model IEnumerable<EntityLayer.Concrete.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+@foreach (var item in Model)
+{
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@item.AboutImage1');">
+        <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('');">
+            <div class="container">
+                <div class="row same-height justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="post-entry text-center">
+                            <h1 class="">Hakkımızda</h1>
+                            <p class="lead mb-4 text-white">Sizler için yüzlerce blog yazan yazarlarımızı ve ekibimizi daha yakından tanımak ister misiniz? </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 order-md-2">
+                    <img src="@item.AboutImage2" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-5 mr-auto order-md-1">
+                    <h2>Biz Kimiz?</h2>
+                    <p> @item.AboutContent1</p>
+
+                    <ul class="ul-check list-unstyled success">
+                        <li> İlgi alanlarınıza göre zevkle okuyacağınız kategoriler</li>
+                        <li> 25 dinamik yazar</li>
+                        <li> Günde 4000 okuma sayısı</li>
+                        <li> 5 farklı ülkeden okuyucular </li>
+                        <li> Sosyal medyada 30k+ takipçi sayısı</li>
+                        <li> 1000+ abone sayısı</li>
+                    </ul>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+</div>
+@Html.Action("MeetTheTeam", "About");
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <img src="@item.AboutImage1" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-5 ml-auto">
+                    <h2>Neler Yapıyoruz</h2>
+                    <p> @item.AboutContent2</p>
+
+                    <ul class="ul-check list-unstyled success">
+                        <li> Çeşitli kategorilerde izleyicilerimize hitap eden youtube videoları</li>
+                        <li>Etkileşimli instagram gönderileri</li>
+                        <li>Her kesimden geniş bir kitle</li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@Html.Action("AddMail", "SubscribeMail") ;
+@Html.Action("Footer", "About");
+
+
